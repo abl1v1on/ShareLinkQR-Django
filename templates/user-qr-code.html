@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <img style="border-radius: 30px;" src="{% static 'qrCodes/' %}{{ request.user.username }}_qrcode.png" class="img-fluid mb-4" alt="">
+    <h3>Покажите этот QR код своим друзьям, <br> чтобы они смогли просмотреть ваши профили.</h3>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="text-center mt-3">
+    <h1>{{ title }}</h1>
+    <hr class="mb-5">
+
+    <div class="row">
+        {% for i in social_networks %}
+        <div class="col-md-4 mb-5">
+            <div class="justify-content-center">
+                <img src="{% static 'images/' %}{{ i.name }}.png" alt="telegram-icon" width="102" height="102">
+                <h3 class="m-2">{{ i.name }}</h3>
+                <a href="{{ i.link }}" target="_blank" style="text-decoration: none;">{{ i.link|truncatechars:30 }}</a>
+                <hr class="w-25 mx-auto ">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

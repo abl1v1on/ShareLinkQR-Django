@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="{% static 'images/login_image.avif' %}"
+                  alt="login form" class="img-fluid mt-5"/>
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+
+                  <form action="" method="post">
+
+                    {% csrf_token %}
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <span class="h1 fw-bold mb-0">ShareLinkQR</span>
+                    </div>
+
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Войдите в свой аккаунт</h5>
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" for="form2Example17">Логин</label>
+{#                      <input type="text" required name="username" id="form2Example17" class="form-control form-control-lg" />#}
+                        {{ form.username }}
+                    </div>
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" for="form2Example27">Пароль</label>
+{#                      <input type="password" required name="password" id="form2Example27" class="form-control form-control-lg" />#}
+                        {{ form.password }}
+                    </div>
+
+                    <div class="pt-1 mb-4">
+                      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="submit">Войти</button>
+                    </div>
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Ещё нет аккаунта? <a href="#!"
+                        style="color: #393f81;">Регистрация</a></p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

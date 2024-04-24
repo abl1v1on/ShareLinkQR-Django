@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label style="font-size: 24px; font-weight: 400;" for="social">Выберите соц. сеть, которую хотите добавить</label><br>
+        {{ form.name }}
+        
+        <label class="mt-4" style="font-size: 24px; font-weight: 400;" for="social">Введите ссылку на ваш профиль</label><br>
+{#        <input type="text" required class="form-control w-25 mt-3" placeholder="Введите ссылку" style="margin: 0 auto;">#}
+        {{ form.link }}
+        <button type="submit" class="btn btn-primary mt-4">Сохранить</button>
+    </form>
+</div>
+{% endblock %}
