@@ -1,0 +1,8 @@
+*.venv
+*.idea
+*.pyc
+*.swp
+*.DS_Store
+*.log
+db.sqlite3
+*__pycache__

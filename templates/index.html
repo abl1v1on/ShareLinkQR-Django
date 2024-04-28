@@ -28,7 +28,7 @@
         {% for i in social_networks %}
         <div id="social-network-el" class="col-md-4 mb-5">
             <div style="position: relative; display: inline-block" class="justify-content-center">
-                <img id="snImage" src="{% static 'images/' %}{{ i.name }}.png" alt="telegram-icon" width="102" height="102">
+                <a href="{{ i.link }}" target="_blank"><img id="snImage" src="{% static 'images/' %}{{ i.name }}.png" alt="telegram-icon" width="102" height="102"></a>
                 <h3 class="m-2">{{ i.name }}</h3>
                 <a href="{{ i.link }}" target="_blank" style="text-decoration: none;">{{ i.link|truncatechars:30 }}</a>
                 <hr class="w-25 mx-auto ">
