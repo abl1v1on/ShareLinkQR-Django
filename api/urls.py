@@ -1,10 +1,15 @@
 from django.urls import path
 
+from rest_framework_simplejwt.views import TokenRefreshView
+
 from . import views
 
 app_name = 'apiv1'
 
 urlpatterns = [
-    path('social-networks/', views.SocialNetworksListAPIView.as_view(), name='social_networks'),
-    path('social-networks/<int:user_id>/', views.get_user_social_networks, name='user_social_networks'),
+    path('token/', views.MyTokenObtainPairView.as_view()),
+    path('token/refresh/', TokenRefreshView.as_view()),
+    path('register/', views.RegisterView.as_view()),
+    path('social-networks/', views.get_social_networks)
 ]
+
