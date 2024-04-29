@@ -16,7 +16,8 @@ SOCIAL_NETWORK_CHOICES = [
 class SocialNetwork(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название', choices=SOCIAL_NETWORK_CHOICES)
     link = models.CharField(max_length=255, verbose_name='Ссылка')
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, verbose_name='Владелец')
+    user = models.ForeignKey(get_user_model(), related_name='social_networks', 
+                             on_delete=models.CASCADE, verbose_name='Владелец')
     date_create = models.DateField(auto_now_add=True)
 
     class Meta:
