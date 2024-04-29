@@ -1,6 +1,8 @@
-from social.models import SocialNetwork
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from django.core.validators import URLValidator
+
+from social.models import SocialNetwork
 
 
 class SocialNetworkSerializer(serializers.ModelSerializer):
