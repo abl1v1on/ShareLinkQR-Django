@@ -10,6 +10,8 @@ urlpatterns = [
     path('token/', views.MyTokenObtainPairView.as_view()),
     path('token/refresh/', TokenRefreshView.as_view()),
     path('register/', views.RegisterView.as_view()),
-    path('social-networks/', views.get_social_networks)
+    path('social-networks/', views.get_social_networks),
+    path('social-networks/<int:pk>/', views.SocialNetworkDetail.as_view())
 ]
 
+# Изменил url пути
